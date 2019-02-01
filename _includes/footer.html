@@ -1,27 +1,27 @@
-<footer>
-    <ul class="icons">
-		<li><a href="{{ site.twitter_url }}" class="fa-twitter" target="_blank">Twitter</a></li>
-		<li><a href="{{ site.gitlab_url }}" class="fa-gitlab" target="_blank">Instagram</a></li>
-		<li><a href="{{ site.linkedin_url }}" class="fa-linkedin" target="_blank">LinkedIn</a></li>
-	</ul>
-</footer>
-
-</section>
-
 <!-- Footer -->
 <footer id="footer">
-	<ul class="copyright">
-		<li>&copy; {{ site.title }}</li><li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li><li>Jekyll integration: <a href="http://andrewbanchi.ch" target="_blank">Andrew Banchich</a></li>
-	</ul>
+  <ul class="icons">
+    {% for socloc in site.social %}
+    {% if socloc[1] %}
+    {% if socloc[0] == 'email' %}
+    <li><a target="_blank" href="{{ socloc[1] }}" class="icon fa-envelope-o"
+           ><span class="label">E-mail</span></a></li>
+    {% else %}
+    <li><a target="_blank" href="{{ socloc[1] }}" class="icon fa-{{ socloc[0] }}"
+           ><span class="label">{{ socloc[0] }}</span></a></li>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+  </ul>
+  <ul class="copyright">
+    <li>&copy; {% assign thisyear = site.time | date: "%Y" %}
+    {% if site.first_published %}
+      {% capture diff %}{{ site.first_published | minus:thisyear }}{% endcapture %}
+      {% if diff contains '-' %}{{ site.first_published }},{% endif %}
+    {% endif %}
+    {{ thisyear }}
+    {% if site.owner %}{{ site.owner }}{% else %}{{ site.title }}{% endif %}</li>
+    <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+    <li>Built with: <a href="http://jekyllrb.com" target="_blank">Jekyll</a></li>
+  </ul>
 </footer>
-
-</div>
-
-<!-- Scripts -->
-<!--[if lte IE 8]><script src="{{ site.url }}{{ site.baseurl }}/assets/js/respond.min.js"></script><![endif]-->
-<script>
-	if ('addEventListener' in window) {
-		window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
-		document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
-	}
-</script>
