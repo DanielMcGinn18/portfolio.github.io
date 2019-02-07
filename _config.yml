@@ -42,8 +42,8 @@ front_img_path: "imgs/background.jpg"
 
 
 favicon_img: yes
-favicon_img_path: "imgs/favicon.ico"
-#favicon_img_path: "https://external.url/favicon.ico"
+favicon_img_path: "https://avatars3.githubusercontent.com/u/47219436?s=400&u=22532688fb0107816d0b35ff25755d5de2bdebcc&v=4"
+#favicon_img_path: "https://avatars3.githubusercontent.com/u/47219436?s=400&u=22532688fb0107816d0b35ff25755d5de2bdebcc&v=4"
 
 
 # Build settings
