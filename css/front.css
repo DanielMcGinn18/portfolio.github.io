@@ -37,6 +37,11 @@ h3 {
     padding-bottom: 20px;
     font-weight: thin;
 }
+h4 {
+    color: white;
+    font-size: 2em;
+    margin: -10px 0;
+}
 .content {
     padding-top: 100px;
     padding-bottom: 500px;
