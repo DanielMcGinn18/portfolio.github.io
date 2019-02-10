@@ -34,12 +34,12 @@ h1 {
 }
 h3 {
     color: white;
-    padding-bottom: 20px;
     font-weight: thin;
 }
 h4 {
-    color: white;
-    font-size: 2em;
+    color: white;    
+    padding-bottom: 20px;
+    font-size: 1em;
     margin: -10px 0;
 }
 .content {
