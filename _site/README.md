@@ -1,18 +1,6 @@
-# front cover jekyll theme
+# Visit the site at <a href="https://danielmcginn.com/">danielmcginn.com</a>
 
-## Why choose this jekyll theme for your front page?
-* You don't have to modify any HTML, everything can be modified in config.yml.
-* Very lightweight. No Javascript, No Bootstrap etc..
-* MIT licensed.
-
-
-## See it in action
-<a href="https://dashingcode.github.io/front-cover/">Live demo page</a>
-
-## Credits
-The background image that was used as an example comes from Tom Hall.
-You can find it on <a href="https://flic.kr/p/pqEPBb">Flickr</a>.
-It's licensed under Creative-Commons.
-
-This theme makes use of the amazing <a href="http://fontawesome.io/">Font Awesome</a> icons.
-
+## This pages uses the <a href="http://jekyllthemes.org/themes/front-cover/">front cover jekyll theme from Dashing Code</a>
+* <a href="https://dashingcode.github.io/front-cover/">Live demo page</a>
+* MIT licensed
+* Makes use of the amazing <a href="http://fontawesome.io/">Font Awesome</a> icons.
