@@ -32,6 +32,9 @@ h1 {
     font-family: 'Open Sans';
     margin: -10px 0;
 }
+h2 {
+    color: white;
+}
 h3 {
     color: white;
     font-weight: thin;
