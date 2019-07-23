@@ -2635,8 +2635,7 @@ input, select, textarea {
 				}
 
 				/*Added by Dan*/
-				p {
-					padding: 3em 2em 1em 2em ;
+				.left {
 					text-align: left;
 				}
 
