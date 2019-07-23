@@ -180,3 +180,4 @@ dmypy.json
 generic.html
 elements.html
 html5up-spectral.zip
+.sass-cache/*
