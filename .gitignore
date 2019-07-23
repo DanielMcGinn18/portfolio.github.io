@@ -175,5 +175,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-_site/generic.html
-_site/elements.html
+
+# Specific Files
+generic.html
+elements.html
