@@ -2758,6 +2758,33 @@ input, select, textarea {
 				width: 55%;
 			}
 
+			.spotlight .allowbreak .tooltip {
+				position: relative;
+				display: inline-block;
+				border-bottom: 1px dotted white;
+			}
+
+			.spotlight .allowbreak .tooltip .tooltiptext {
+				visibility: hidden;
+				width: 420px;
+				background-color: black;
+				color: #fff;
+				text-align: center;
+				border-radius: 6px;
+				padding: 5px 0;
+				  
+				/* Position the tooltip */
+				position: absolute;
+				z-index: 1;
+				bottom: 100%;
+				left: 50%;
+				margin-left: -200px;
+			}
+
+			.spotlight .allowbreak  .tooltip:hover .tooltiptext {
+				visibility: visible;
+			}
+
 		}
 
 		@media screen and (max-width: 980px) {
@@ -2768,6 +2795,38 @@ input, select, textarea {
 
 				.spotlight br {
 					display: none;
+				}
+
+				/*Added by Dan*/
+				.spotlight .allowbreak br {
+					display: inline;
+				}
+
+				.spotlight .allowbreak .tooltip {
+					position: relative;
+					display: inline-block;
+					border-bottom: 1px dotted white;
+				}
+
+				.spotlight .allowbreak .tooltip .tooltiptext {
+					visibility: hidden;
+					width: 360px;
+					background-color: black;
+					color: #fff;
+					text-align: center;
+					border-radius: 6px;
+					padding: 5px 0;
+					  
+					/* Position the tooltip */
+					position: absolute;
+					z-index: 1;
+					bottom: 100%;
+					left: 50%;
+					margin-left: -190px;
+				}
+
+				.spotlight .allowbreak  .tooltip:hover .tooltiptext {
+					visibility: visible;
 				}
 
 				.spotlight .image {
