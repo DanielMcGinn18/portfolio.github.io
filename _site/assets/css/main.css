@@ -2758,16 +2758,18 @@ input, select, textarea {
 				width: 55%;
 			}
 
+			/*Added by Dan*/
+
 			.spotlight .allowbreak .tooltip {
 				position: relative;
 				display: inline-block;
-				border-bottom: 1px dotted white;
+				/*border-bottom: 1px dotted white;*/
 			}
 
 			.spotlight .allowbreak .tooltip .tooltiptext {
 				visibility: hidden;
-				width: 420px;
-				background-color: black;
+				width: 440px;
+				background-color: #21b2a6;
 				color: #fff;
 				text-align: center;
 				border-radius: 6px;
@@ -2778,7 +2780,7 @@ input, select, textarea {
 				z-index: 1;
 				bottom: 100%;
 				left: 50%;
-				margin-left: -200px;
+				margin-left: -162px;
 			}
 
 			.spotlight .allowbreak  .tooltip:hover .tooltiptext {
@@ -2805,13 +2807,13 @@ input, select, textarea {
 				.spotlight .allowbreak .tooltip {
 					position: relative;
 					display: inline-block;
-					border-bottom: 1px dotted white;
+					/*border-bottom: 1px dotted white;*/
 				}
 
 				.spotlight .allowbreak .tooltip .tooltiptext {
 					visibility: hidden;
 					width: 360px;
-					background-color: black;
+					background-color: #21b2a6;
 					color: #fff;
 					text-align: center;
 					border-radius: 6px;
@@ -2822,7 +2824,7 @@ input, select, textarea {
 					z-index: 1;
 					bottom: 100%;
 					left: 50%;
-					margin-left: -190px;
+					margin-left: -180px;
 				}
 
 				.spotlight .allowbreak  .tooltip:hover .tooltiptext {
