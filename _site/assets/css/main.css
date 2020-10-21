@@ -77,12 +77,20 @@ input, select, textarea {
 .tooltip {
   position: relative;
   display: inline-block;
+  font-size: 15px;
+  text-align: left;
+  color: #d3d4e4;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-size: 100%;
+  font-weight: 400;
+  letter-spacing: 0.075em;
+  line-height: 1.65em;
 /*  border-bottom: 1px dotted white;*/
 }
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 440px;
+  width: 340px;
   background-color: #21b2a6;
   color: #fff;
   text-align: center;
@@ -94,7 +102,7 @@ input, select, textarea {
   z-index: 1;
   bottom: 100%;
   left: 50%;
-  margin-left: -240px;
+  margin-left: -100px;
 }
 
 .tooltip:hover .tooltiptext {
