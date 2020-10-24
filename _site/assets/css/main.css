@@ -4017,9 +4017,9 @@ input, select, textarea {
 
 		}
 
-	/*body.is-mobile #main > header {
+	body.is-mobile #main > header {
 		background-attachment: scroll;
-	}*/
+	}
 
 /* Footer */
 
