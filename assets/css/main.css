@@ -201,10 +201,10 @@ input, select, textarea {
 	h1, h2, h3, h4, h5, h6 {
 		color: #fff;
 		font-weight: 800;
-		letter-spacing: 0.225em;
+		/*letter-spacing: 0.225em;*/
 		line-height: 1em;
-		margin: 0 0 1em 0;
-		text-transform: uppercase;
+		margin: 0 0 1.5em 0;
+		/*text-transform: uppercase;*/
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -1811,13 +1811,13 @@ input, select, textarea {
 	}
 
 	header.major {
-		margin: 0 0 3.5em 0;
+		margin: 0 0 1.5em 0;
 	}
 
 		header.major h2, header.major h3, header.major h4, header.major h5, header.major h6 {
-			border-bottom: solid 2px #fff;
+			border-bottom: solid 2px #ffffff;
 			display: inline-block;
-			padding-bottom: 1em;
+			padding-bottom: .5em;
 			position: relative;
 		}
 
@@ -2523,7 +2523,7 @@ input, select, textarea {
 		input[type="button"].primary,
 		button.primary,
 		.button.primary {
-			background-color: #ff8f33/*#ff9633*/;
+			background-color: #d9792a/*#ff9633*/;
 			box-shadow: none !important;
 			color: #ffffff !important;
 		}
@@ -2640,7 +2640,7 @@ input, select, textarea {
 
 			.features li:before {
 				display: block;
-				color: #00ffcc;
+				color: #ffffff;
 				position: absolute;
 				left: 1.75em;
 				top: 2.75em;
@@ -2920,7 +2920,7 @@ input, select, textarea {
 /* Wrapper */
 
 	.wrapper {
-		padding: 3.5em 0 .25em 0 ;
+		padding: 2em 0 .25em 0 ;
 	}
 
 		.wrapper > .inner {
@@ -2949,7 +2949,7 @@ input, select, textarea {
 		}
 
 		.wrapper.style1 {
-			background-color: #21b2a6;
+			background-color: #3694b1;
 			color: #c8ece9;
 		}
 
@@ -2957,8 +2957,14 @@ input, select, textarea {
 				color: #ffffff;
 			}
 
-			.wrapper.style1 h2, .wrapper.style1 h3, .wrapper.style1 h4, .wrapper.style1 h5, .wrapper.style1 h6 {
+			.wrapper.style1 h3, .wrapper.style1 h4, .wrapper.style1 h5, .wrapper.style1 h6 {
 				color: #ffffff;
+			}
+
+			.wrapper.style1 h2 {
+				color: #ffffff;
+				letter-spacing: 0.225em;
+				text-transform: uppercase;
 			}
 
 			.wrapper.style1 hr {
@@ -2978,11 +2984,11 @@ input, select, textarea {
 			}
 
 			.wrapper.style1 header.major h2, .wrapper.style1 header.major h3, .wrapper.style1 header.major h4, .wrapper.style1 header.major h5, .wrapper.style1 header.major h6 {
-				border-color: rgba(0, 0, 0, 0.125);
+				/*border-color: rgba(0, 0, 0, 0.125);*/
 			}
 
 			.wrapper.style1 header.major p {
-				color: #c8ece9;
+				color: #ffffff;
 			}
 
 			.wrapper.style1 label {
@@ -3111,16 +3117,30 @@ input, select, textarea {
 			background-color: #2e3842;
 		}
 
+		.wrapper.style2 h2 {
+    		color: #ffffff;
+    		letter-spacing: 0.225em;
+    		text-transform: uppercase;
+    		text-align: center;
+    		margin: 0 0 .5em 0;
+    	}
+
 		.wrapper.style3 {
-			background-color: #505393;
-			color: #d3d4e4;
+			background-color: #3694b1;
+			color: #ffffff;
 		}
 
 			.wrapper.style3 strong, .wrapper.style3 b {
 				color: #ffffff;
 			}
 
-			.wrapper.style3 h2, .wrapper.style3 h3, .wrapper.style3 h4, .wrapper.style3 h5, .wrapper.style3 h6 {
+			.wrapper.style3 h2 {
+				color: #ffffff;
+				letter-spacing: 0.225em;
+				text-transform: uppercase;
+			}
+
+			.wrapper.style3 h3, .wrapper.style3 h4, .wrapper.style3 h5, .wrapper.style3 h6 {
 				color: #ffffff;
 			}
 
@@ -3141,11 +3161,11 @@ input, select, textarea {
 			}
 
 			.wrapper.style3 header.major h2, .wrapper.style3 header.major h3, .wrapper.style3 header.major h4, .wrapper.style3 header.major h5, .wrapper.style3 header.major h6 {
-				border-color: rgba(0, 0, 0, 0.125);
+				/*border-color: rgba(0, 0, 0, 0.125);*/
 			}
 
 			.wrapper.style3 header.major p {
-				color: #d3d4e4;
+				color: #ffffff;
 			}
 
 			.wrapper.style3 label {
@@ -3265,13 +3285,27 @@ input, select, textarea {
 			@media screen and (max-width: 736px) {
 
 				.wrapper.style3 .features li {
-					border-top-color: rgba(0, 0, 0, 0.125);
+					/*border-top-color: rgba(0, 0, 0, 0.125);*/
 				}
 
 			}
 
 		.wrapper.style4 {
 			background-color: transparent;
+			padding: 4.5em 0 0.25em 0;
+		}
+
+		.wrapper.style6 {
+			background-color: transparent;
+			padding: 4.5em 0 0.25em 0;
+			background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/bg.jpg");
+			background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/bg.jpg");
+			background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/bg.jpg");
+			background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/bg.jpg");
+			background-attachment: fixed;
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: cover;
 		}
 
 		.wrapper.style5 {
@@ -3436,7 +3470,7 @@ input, select, textarea {
 		@media screen and (max-width: 980px) {
 
 			.wrapper {
-				padding: 3.5em 3em .25em 3em ;
+				padding: 2.5em 3em .25em 3em ;
 			}
 
 		}
@@ -3483,7 +3517,7 @@ input, select, textarea {
 		-ms-transition: -ms-transform 0.5s ease;
 		transition: transform 0.5s ease;
 		-webkit-overflow-scrolling: touch;
-		background: #21b2a6;
+		background: #3694b1;
 		color: #ffffff;
 		height: 100%;
 		max-width: 80%;
@@ -3604,6 +3638,8 @@ input, select, textarea {
 				display: block;
 				height: inherit;
 				line-height: inherit;
+				letter-spacing: 0.225em;
+				text-transform: uppercase;
 			}
 
 				@media screen and (max-width: 736px) {
@@ -3731,6 +3767,8 @@ input, select, textarea {
 			padding: 0.35em 1em;
 			position: relative;
 			z-index: 1;
+			letter-spacing: 0.225em;
+			text-transform: uppercase;
 		}
 
 			#banner h2:before, #banner h2:after {
@@ -3781,10 +3819,10 @@ input, select, textarea {
 			-webkit-transition: -webkit-transform 0.75s ease, opacity 0.75s ease;
 			-ms-transition: -ms-transform 0.75s ease, opacity 0.75s ease;
 			transition: transform 0.75s ease, opacity 0.75s ease;
-			-moz-transition-delay: 3.5s;
-			-webkit-transition-delay: 3.5s;
-			-ms-transition-delay: 3.5s;
-			transition-delay: 3.5s;
+			-moz-transition-delay: 4.5s;
+			-webkit-transition-delay: 4.5s;
+			-ms-transition-delay: 4.5s;
+			transition-delay: 4.5s;
 			-moz-transform: translateY(0);
 			-webkit-transform: translateY(0);
 			-ms-transform: translateY(0);
@@ -3846,7 +3884,7 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			#banner {
-				padding: 7em 3em 5em 3em ;
+				padding: 10em 3em 10em 3em ;
 				height: auto;
 				min-height: 0;
 			}
@@ -3896,7 +3934,7 @@ input, select, textarea {
 		display: -webkit-flex;
 		display: -ms-flex;
 		display: flex;
-		max-width: 45em;
+		max-width: 60em;
 	}
 
 		#cta .inner header {
@@ -3925,6 +3963,7 @@ input, select, textarea {
 			#cta .inner {
 				display: block;
 				text-align: center;
+				max-width: 40em;
 			}
 
 				#cta .inner header {
@@ -3953,10 +3992,10 @@ input, select, textarea {
 
 	#main > header {
 		padding: 12em 0 10em 0 ;
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
+		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/bg.jpg");
+		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/bg.jpg");
+		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/bg.jpg");
+		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/bg.jpg");
 		background-attachment: fixed;
 		background-position: center center;
 		background-repeat: no-repeat;
@@ -3967,6 +4006,8 @@ input, select, textarea {
 		#main > header h2 {
 			font-size: 1.75em;
 			margin: 0 0 0.5em 0;
+			letter-spacing: 0.225em;
+			text-transform: uppercase;
 		}
 
 		#main > header p {
@@ -4103,10 +4144,10 @@ input, select, textarea {
 /* Landing */
 
 	body.landing #page-wrapper {
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
+		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/bg.jpg");
+		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/bg.jpg");
+		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/bg.jpg");
+		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/bg.jpg");
 		background-attachment: fixed;
 		background-position: center center;
 		background-repeat: no-repeat;
@@ -4124,10 +4165,10 @@ input, select, textarea {
 
 	body.is-mobile.landing #banner,
 	body.is-mobile.landing .wrapper.style4 {
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
+		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/bg.jpg");
+		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/bg.jpg");
+		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/bg.jpg");
+		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/bg.jpg");
 		background-position: center center;
 		background-repeat: no-repeat;
 		background-size: cover;
