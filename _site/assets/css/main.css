@@ -3480,6 +3480,9 @@ input, select, textarea {
 			.wrapper {
 				padding: 3em 2em 1em 2em ;
 			}
+			.wrapper.style5.viewer {
+				padding: 3em 2em 1.25em 1.25em ;
+			}
 
 		}
 

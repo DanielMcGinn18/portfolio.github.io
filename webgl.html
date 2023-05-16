@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Daniel McGinn</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="icon" href="/images/compass-drafting-solid.ico" type="image/x-icon">
+		<link rel="icon" href="/images/compass-drafting-solid.svg" type="image/svg+xml">
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+
+	<body class="is-preload">
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
+
+		<!-- Header -->
+			<header id="header">
+				<h1><a href="index">Daniel McGinn</a></h1>
+				<nav id="nav">
+					<ul>
+						<li class="special">
+							<a href="#menu" class="menuToggle"><span>Menu</span></a>
+							<div id="menu">
+								<ul>
+									<li><a href="index">Home</a></li>
+									<li><a style='text-indent: 25px;' href="index#overview">Overview</a></li>
+									<li><a style='text-indent: 25px;' href="index#portfolio">Portfolio</a></li>
+									<li><a style='text-indent: 25px;' href="index#skills">Skills</a></li>
+									<li><a href="resume">Resume</a></li>
+									<!-- <li><a href="#main" class="more scrolly">3D Models</a></li> -->
+									<!-- <li><a href="elements.html">Elements</a></li> -->
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</nav>
+			</header>
+		</div>
+
+		<article id="main">
+			<header>
+				<h2>3D Models</h2>
+				<p style="text-transform: none;">Rendered with WebGL</p>
+			</header>
+
+		<section class="wrapper style5 viewer">
+			<div class="inner">
+				<h3>3D Printer</h3>
+				<p>I designed this 3D Printer entirely with the SolidWorks Cloud Apps and I've used the model to showcase functionality for numerous live and recorded demos.<p>
+				<div id="viewer"></div><br>
+				<h5>3D viewer powered by <a class="icon brands fa-github"><span class="label">GitHub</span></a> <a href="https://github.com/mrdoob/three.js/" target="_blank" rel="noopener">three.js</a>, HDRI from <!-- <a class="icon solid fa-image"><span class="label">image</span></a>  --><a href="https://polyhaven.com/a/aerodynamics_workshop" target="_blank" rel="noopener">Poly Haven</a></h5>
+			</div>
+		</section>
+
+		<!-- Import maps polyfill -->
+		<!-- Remove this when import maps will be widely supported -->
+		<script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "../assets/build/three.module.js",
+					"three/addons/": "./assets/jsm/"
+				}
+			}
+		</script>
+
+		<script type="module">
+
+			import * as THREE from 'three';
+
+			import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+			import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+			import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
+
+			let camera, scene, renderer;
+
+			init();
+			render();
+
+			function init() {
+
+				const container = document.createElement( 'div' );
+				document.getElementById("viewer").appendChild( container );
+
+				camera = new THREE.PerspectiveCamera( 45, (window.innerWidth * 9/10) / (window.innerHeight - 140), 0.1, 20 );
+				if (window.innerWidth < 515) {
+  					camera.position.set( .96 , .9 , .58 );
+				}
+				if (window.innerWidth < 515) {
+				  camera.position.set( 1.18 , 1.1 , .72 );
+				} else {
+				  camera.position.set( .96 , .9 , .58 );
+				}
+				/*camera.position.set( .96 , .83 , - .65 );*/
+				/*camera.position.set( 1.10 , .4 , 0 );*/
+
+				scene = new THREE.Scene();
+
+				new RGBELoader()
+					.setPath( 'samples/models/textures/' )
+					.load( 'aerodynamics_workshop_4k.hdr', function ( texture ) {
+
+						texture.mapping = THREE.EquirectangularReflectionMapping;
+
+						scene.background = texture;
+						scene.environment = texture;
+
+						render();
+
+						// model
+
+						const loader = new GLTFLoader().setPath( 'samples/models/' );
+						loader.load( '3D Printer.glb', function ( gltf ) {
+
+							scene.add( gltf.scene );
+
+							render();
+
+						} );
+
+					} );
+
+				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( (window.innerWidth * 9/10), (window.innerHeight - 140) );
+				renderer.toneMapping = THREE.ACESFilmicToneMapping;
+				renderer.toneMappingExposure = 1;
+				container.appendChild( renderer.domElement );
+
+				const controls = new OrbitControls( camera, renderer.domElement );
+				controls.addEventListener( 'change', render ); // use if there is no animation loop
+				controls.minDistance = .85;
+				controls.maxDistance = 2;
+				controls.target.set( 0, 0.25, 0 );
+				controls.update();
+
+				window.addEventListener( 'resize', onWindowResize );
+
+			}
+
+			function onWindowResize() {
+
+				camera.aspect = (window.innerWidth * 9/10) / (window.innerHeight - 140);
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( (window.innerWidth * 9/10), (window.innerHeight - 140) );
+
+				render();
+
+			}
+
+			//
+
+			function render() {
+
+				renderer.render( scene, camera );
+
+			}
+
+		</script>
+		<!-- CTA -->
+						<section id="cta" class="wrapper style6">
+							<div class="inner">
+								<header>
+									<h2>Resume & Contact</h2>
+									<p>Thank you for visiting my website! You can download a PDF copy of my resume here and please feel free to contact me via email or LinkedIn.</p>
+								</header>
+								<ul class="actions stacked">
+									<li><a href="DanielMcGinnResume.pdf" class="button fit primary" target="_blank">PDF Resume</a></li>
+									<li><a href="mailto:danmcginn2@gmail.com" class="button fit">Email</a></li>
+									<li><a href="https://www.linkedin.com/in/daniel-mcginn-01/" class="button fit">LinkedIn</a></li>
+								</ul>
+							</div><br><br>
+						</section>
+					</article>
+
+					<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="https://github.com/DanielMcGinn18" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="mailto:danmcginn2@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+							<li><a href="https://www.linkedin.com/in/daniel-mcginn-01" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						</ul>
+						<ul class="copyright">
+							<li>&copy; 2023 Daniel McGinn</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
