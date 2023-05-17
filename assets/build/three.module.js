@@ -27832,6 +27832,8 @@ function createCanvasElement() {
 
 	const canvas = createElementNS( 'canvas' );
 	canvas.style.display = 'block';
+	canvas.style.marginLeft = "auto";
+	canvas.style.marginRight = "auto";
 	return canvas;
 
 }
