@@ -83,14 +83,12 @@
 
 				const container = document.createElement( 'div' );
 				document.getElementById("viewer").appendChild( container );
-
-				camera = new THREE.PerspectiveCamera( 45, (window.innerWidth * 9/10) / (window.innerHeight - 140), 0.1, 20 );
+				
 				if (window.innerWidth < 515) {
-  					camera.position.set( .96 , .9 , .58 );
-				}
-				if (window.innerWidth < 515) {
+				  camera = new THREE.PerspectiveCamera( 45, (window.innerWidth * .9) / (window.innerHeight * .65), 0.1, 20 );
 				  camera.position.set( 1.18 , 1.1 , .72 );
 				} else {
+				  camera = new THREE.PerspectiveCamera( 45, (window.innerWidth * .9) / (window.innerHeight * .8), 0.1, 20 );
 				  camera.position.set( .96 , .9 , .58 );
 				}
 				/*camera.position.set( .96 , .83 , - .65 );*/
@@ -124,7 +122,11 @@
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
-				renderer.setSize( (window.innerWidth * 9/10), (window.innerHeight - 140) );
+				if (window.innerWidth < 515) {
+				  renderer.setSize( (window.innerWidth * .9), (window.innerHeight * .65) );
+				} else {
+				  renderer.setSize( (window.innerWidth * .9), (window.innerHeight * .8) );
+				}
 				renderer.toneMapping = THREE.ACESFilmicToneMapping;
 				renderer.toneMappingExposure = 1;
 				container.appendChild( renderer.domElement );
@@ -142,10 +144,17 @@
 
 			function onWindowResize() {
 
-				camera.aspect = (window.innerWidth * 9/10) / (window.innerHeight - 140);
-				camera.updateProjectionMatrix();
+				if (window.innerWidth < 515) {
+				  camera.aspect = (window.innerWidth * .9) / (window.innerHeight * .65);
+				  camera.updateProjectionMatrix();
 
-				renderer.setSize( (window.innerWidth * 9/10), (window.innerHeight - 140) );
+				  renderer.setSize( (window.innerWidth * .9), (window.innerHeight * .65) );
+				} else {
+				  camera.aspect = (window.innerWidth * .9) / (window.innerHeight * .8);
+				  camera.updateProjectionMatrix();
+
+				  renderer.setSize( (window.innerWidth * .9), (window.innerHeight * .8) );
+				}
 
 				render();
 
