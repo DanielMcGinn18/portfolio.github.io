@@ -4061,7 +4061,6 @@ input, select, textarea {
 		#main > header p {
 			color: inherit;
 			letter-spacing: 0.225em;
-			text-transform: uppercase;
 			top: 0;
 		}
 
@@ -4088,7 +4087,7 @@ input, select, textarea {
 		@media screen and (max-width: 980px) {
 
 			#main > header {
-				padding: 4em 3em 3em 3em ;
+				padding: 6em 3em 4em 3em ;
 			}
 
 		}
@@ -4102,6 +4101,10 @@ input, select, textarea {
 				#main > header h2 {
 					font-size: 1.25em;
 					margin: 0 0 1em 0;
+				}
+
+				#main > header p.lesspadding {
+					margin: 0 0 .4em 0;
 				}
 
 		}
