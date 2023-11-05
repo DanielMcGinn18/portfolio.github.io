@@ -3352,6 +3352,55 @@ input, select, textarea {
 			background-size: cover;
 		}
 
+		.wrapper.style7 {
+			background-color: transparent;
+			padding: 4.5em 0 0.25em 0;
+			background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/TajMahalBanner.jpg");
+			background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/TajMahalBanner.jpg");
+			background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/TajMahalBanner.jpg");
+			background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/TajMahalBanner.jpg");
+			background-attachment: fixed;
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
+		.wrapper.style8 {
+			background-color: transparent;
+			padding: 4.5em 0 0.25em 0;
+			background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/LaJollaBanner.jpg");
+			background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/LaJollaBanner.jpg");
+			background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/LaJollaBanner.jpg");
+			background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/LaJollaBanner.jpg");
+			background-attachment: fixed;
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
+		.is-mobile .wrapper.style7 {
+			background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/TajMahalBanner.jpg");
+			background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/TajMahalBanner.jpg");
+			background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/TajMahalBanner.jpg");
+			background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/TajMahalBanner.jpg");
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-attachment: scroll;
+			padding: 3em 2em 1em 2em;
+		}
+		.is-mobile .wrapper.style8 {
+			background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/LaJollaBanner.jpg");
+			background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/LaJollaBanner.jpg");
+			background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/LaJollaBanner.jpg");
+			background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/LaJollaBanner.jpg");
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-attachment: scroll;
+			padding: 3em 2em 1em 2em;
+		}
+
 		.wrapper.style5 {
 			background-color: #ffffff;
 			color: #4E4852;
@@ -4050,6 +4099,32 @@ input, select, textarea {
 		text-align: center;
 	}
 
+	#main > header.style2 {
+		padding: 8em 0 6em 0 ;
+		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/TajMahalBanner.jpg");
+		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/TajMahalBanner.jpg");
+		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/TajMahalBanner.jpg");
+		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/TajMahalBanner.jpg");
+		background-attachment: fixed;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		text-align: center;
+	}
+
+	#main > header.style3 {
+		padding: 8em 0 6em 0 ;
+		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/LaJollaBanner.jpg");
+		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/LaJollaBanner.jpg");
+		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/LaJollaBanner.jpg");
+		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/LaJollaBanner.jpg");
+		background-attachment: fixed;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		text-align: center;
+	}
+
 		#main > header h2 {
 			font-size: 1.75em;
 			margin: 0 0 0.5em 0;
@@ -4061,6 +4136,7 @@ input, select, textarea {
 			color: inherit;
 			letter-spacing: 0.225em;
 			top: 0;
+			margin: 0 2em 0 2em;
 		}
 
 			#main > header p a {
