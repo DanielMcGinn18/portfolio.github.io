@@ -50,12 +50,15 @@
 			</header>
 
 		<section class="wrapper style5 viewer">
-			<!-- <div class="inner">
-				<h3>3D Printer</h3>
-				<p>I designed this 3D Printer entirely with the SolidWorks Cloud Apps and I've used the model to showcase functionality for numerous live and recorded demos.<p>
-			</div> -->
-			<div id="viewer"></div><br>
-				<!-- <h5>3D viewer powered by <a class="icon brands fa-github"><span class="label">GitHub</span></a> <a href="https://github.com/mrdoob/three.js/" target="_blank" rel="noopener">three.js</a>, HDRI from <a href="https://polyhaven.com/a/aerodynamics_workshop" target="_blank" rel="noopener">Poly Haven</a></h5> -->
+
+	    	<div class="container">
+			    <div class="loading-overlay">
+			        <div class="loading-spinner"></div>
+			        <div class="loading-text">Loading...</div>
+			    </div>
+			    <div id="viewer"></div><br>
+			</div>
+
 		</section>
 
 		<!-- Import maps polyfill -->
@@ -81,8 +84,14 @@
 
 			let camera, scene, renderer;
 
-			init();
-			render();
+			window.addEventListener('load', function() {
+			    // Initialize WebGL viewer in the background
+			    init();
+			    // Display the loading screen
+				const loadingOverlay = document.querySelector('.loading-overlay');
+				loadingOverlay.style.display = 'flex';
+			});
+
 
 			function init() {
 
@@ -120,6 +129,10 @@
 							scene.add( gltf.scene );
 
 							render();
+
+							// Once the viewer has loaded, hide the loading overlay
+				    		const loadingOverlay = document.querySelector('.loading-overlay');
+				    		loadingOverlay.style.display = 'none';
 
 						} );
 
