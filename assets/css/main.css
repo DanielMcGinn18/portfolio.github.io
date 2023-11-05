@@ -248,7 +248,7 @@ input, select, textarea {
 		font-weight: 800;
 		/*letter-spacing: 0.225em;*/
 		line-height: 1em;
-		margin: 0 0 1.5em 0;
+		margin: 0 0 0.5em 0;
 		/*text-transform: uppercase;*/
 	}
 
@@ -2995,7 +2995,6 @@ input, select, textarea {
 
 		.wrapper.style1 {
 			background-color: #3694b1;
-			color: #c8ece9;
 		}
 
 			.wrapper.style1 strong, .wrapper.style1 b {
