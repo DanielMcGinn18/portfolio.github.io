@@ -54,31 +54,20 @@
 		<article id="main">
 			<header class="style3">
 				<h2>CAD Portfolio</h2>
-				<p>Portfolio of designs created with the SolidWorks Cloud Apps</p>
+				<p>Designed with the SolidWorks Cloud Apps</p>
 				<!-- <p style="text-transform: none;margin: 0 0 0 0;"><i>(loading may take a few seconds)</i></p> -->
 			</header>
-			<section class="wrapper style5">
-			<div id='3dPrinter' class="inner">
-				<!-- <div style="padding: 0 0 1.2em;">
+
+		<section class="wrapper style5 viewer">
+
+			<div class='inner' style="padding: 0 0 1.2em;">
 				<label for="model-select">Select Model:</label>
 				<select id="model-select">
 					<option value="3dPrinter.glb">3D Printer</option>
 					<option value="LawnFurniture.glb">Lawn Furniture</option>
 				</select>
-				</div> -->
-			<h2>3D Printer</h2>
-			<div class="row gtr-50 gtr-uniform">
-				<div class="col-6"><span class="image fit"><img src="images/printer/Printer.png" alt="" /></span></div>
-				<div class="col-6"><span class="image fit"><img src="images/printer/WN_XSU_22xFD03_4.png" alt="" /></span></div>
-				<div class="col-6"><span class="image fit"><img src="images/printer/Printer&RasPi.png" alt="" /></span></div>
-				<div class="col-6"><span class="image fit"><img src="images/printer/GantryDrawing.png" alt="" /></span></div>
 			</div>
-			</div>
-		</section>
 
-		<section class="wrapper style5 viewer">
-
-	    	<div style='text-align: center;'><h3>Interactive 3D Viewer</h3></div>
 	    	<div class="container">
 			    <div class="loading-overlay">
 			        <div class="loading-spinner"></div>
@@ -89,26 +78,6 @@
 
 		</section>
 
-		<section class="wrapper style5">
-			<div id='other' class="inner">
-				<hr style='margin: 0 0 3em 0;'/>
-				<h2>More Designs</h2>
-				<div class="row gtr-50 gtr-uniform">
-					<div class="col-6"><span class="image fit"><img src="images/WN_XSU_FD06_5_V2.jpg" alt="" /></span></div>
-					<div class="col-6"><span class="image fit"><img src="images/Lawn Furniture 1920x1080.png" alt="" /></span></div>
-					<div class="col-6"><span class="image fit"><img src="images/Aircraft Assembly.jpg" alt="" /></span></div>
-					<div class="col-6"><span class="image fit"><img src="images/Chair Lift 1920x1080 (bar down).png" alt="" /></span></div>
-					<!-- <div class="col-6"><span class="image fit"><img src="images/Camp Grill.jpg" alt="" /></span></div> -->
-				</div>
-			</div>
-			<br><br><br>
-		</section>
-		</article>
-	</div>
-
-
-
-
 		<!-- Import maps polyfill -->
 		<!-- Remove this when import maps will be widely supported -->
 		<script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
@@ -117,7 +86,8 @@
 			{
 				"imports": {
 					"three": "../assets/build/three.module.js",
-					"three/addons/": "./assets/jsm/"
+					"three/addons/": "./assets/jsm/",
+					"tween": "../assets/jsm/libs/tween.js"
 				}
 			}
 		</script>
@@ -125,12 +95,14 @@
 		<script type="module">
 
 			import * as THREE from 'three';
+			import * as TWEEN from 'tween';
 
 			import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 			import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 			import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
 
 			let camera, scene, renderer;
+			let currentModel = null; // Variable to track the current loaded model
 
 			window.addEventListener('load', function() {
 			    // Initialize WebGL viewer in the background
@@ -140,6 +112,23 @@
 				loadingOverlay.style.display = 'flex';
 			});
 
+			document.getElementById('model-select').addEventListener('change', function() {
+            	const selectedValue = this.value;
+            	changeModel(selectedValue);
+        	});
+
+			const modelData = {
+			    '3dPrinter.glb': { 
+			        position: { x: 0, y: -0.32, z: 0 },
+			        camera: { x: 1.04, y: .6, z: .78 },
+			        environment: 'aerodynamics_workshop_4k.hdr'
+			    },
+			    'LawnFurniture.glb': { 
+			        position: { x: -.5, y: -.1, z: .5 },
+			        camera: { x: 1.2, y: 1, z: 1.4 },
+			        environment: 'lythwood_terrace_4k.hdr'
+			    }
+			};
 
 			function init() {
 
@@ -147,11 +136,11 @@
 				document.getElementById("viewer").appendChild( container );
 				
 				if (window.innerWidth < 515) {
-				  camera = new THREE.PerspectiveCamera( 45, (window.innerWidth * .85) / (window.innerHeight * .65), 0.1, 20 );
-				  camera.position.set( 1.04 , .97 , .78 );
+				  camera = new THREE.PerspectiveCamera( 45, (window.innerWidth * .9) / (window.innerHeight * .65), 0.1, 20 );
+				  camera.position.set( 1.04 , .6 , .78 );
 				} else {
-				  camera = new THREE.PerspectiveCamera( 45, (window.innerWidth * .89) / (window.innerHeight * .8), 0.1, 20 );
-				  camera.position.set( .96 , .9 , .58 );
+				  camera = new THREE.PerspectiveCamera( 45, (window.innerWidth * .9) / (window.innerHeight * .8), 0.1, 20 );
+				  camera.position.set( .96 , .6 , .58 );
 				}
 				/*camera.position.set( .96 , .83 , - .65 );*/
 				/*camera.position.set( 1.10 , .4 , 0 );*/
@@ -167,6 +156,8 @@
 						scene.background = texture;
 						scene.environment = texture;
 
+						const targetPosition = new THREE.Vector3(0, -0.32, 0);
+
 						render();
 
 						// model
@@ -174,7 +165,9 @@
 						const loader = new GLTFLoader().setPath( 'samples/models/' );
 						loader.load( '3dPrinter.glb', function ( gltf ) {
 
-							scene.add( gltf.scene );
+							currentModel = gltf.scene;
+							currentModel.position.copy(targetPosition);
+							scene.add( currentModel );
 
 							render();
 
@@ -189,9 +182,9 @@
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				if (window.innerWidth < 515) {
-				  renderer.setSize( (window.innerWidth * .85), (window.innerHeight * .65) );
+				  renderer.setSize( (window.innerWidth * .9), (window.innerHeight * .65) );
 				} else {
-				  renderer.setSize( (window.innerWidth * .89), (window.innerHeight * .8) );
+				  renderer.setSize( (window.innerWidth * .9), (window.innerHeight * .8) );
 				}
 				renderer.toneMapping = THREE.ACESFilmicToneMapping;
 				renderer.toneMappingExposure = 1;
@@ -199,9 +192,12 @@
 
 				const controls = new OrbitControls( camera, renderer.domElement );
 				controls.addEventListener( 'change', render ); // use if there is no animation loop
-				controls.minDistance = .67;
-				controls.maxDistance = 2.5;
-				controls.target.set( .02, 0.28, 0 );
+				/*controls.minDistance = .67;
+				controls.maxDistance = 2.5;*/
+				controls.minDistance = .1;
+				controls.maxDistance = 100;
+				// controls.target.set( .02, 0.28, 0 );
+				controls.target.set( 0, 0.01, 0 );
 				controls.update();
 
 				window.addEventListener( 'resize', onWindowResize );
@@ -211,26 +207,108 @@
 			function onWindowResize() {
 
 				if (window.innerWidth < 515) {
-				  camera.aspect = (window.innerWidth * .85) / (window.innerHeight * .65);
+				  camera.aspect = (window.innerWidth * .9) / (window.innerHeight * .65);
 				  camera.updateProjectionMatrix();
 
-				  renderer.setSize( (window.innerWidth * .85), (window.innerHeight * .65) );
+				  renderer.setSize( (window.innerWidth * .9), (window.innerHeight * .65) );
 				} else {
-				  camera.aspect = (window.innerWidth * .89) / (window.innerHeight * .8);
+				  camera.aspect = (window.innerWidth * .9) / (window.innerHeight * .8);
 				  camera.updateProjectionMatrix();
 
-				  renderer.setSize( (window.innerWidth * .89), (window.innerHeight * .8) );
+				  renderer.setSize( (window.innerWidth * .9), (window.innerHeight * .8) );
 				}
 
 				render();
 
 			}
 
+			//
+
 			function render() {
 
 				renderer.render( scene, camera );
 
 			}
+
+			function changeModel(modelFile) {
+
+				// Remove current model from the scene
+    			const modelInfo = modelData[modelFile];
+
+    			if (currentModel !== null) {
+			        scene.remove(currentModel);
+			    }
+
+			    render();
+
+			    const loadingOverlay = document.querySelector('.loading-overlay');
+				loadingOverlay.style.display = 'flex';
+
+				// Set the position of the camera
+			    camera.position.set(modelInfo.camera.x, modelInfo.camera.y, modelInfo.camera.z);
+			    camera.updateProjectionMatrix()
+			    console.log('Camera Position:', modelInfo.camera);
+
+			    const targetPosition = new THREE.Vector3(
+			        modelInfo.position.x,
+			        modelInfo.position.y,
+			        modelInfo.position.z
+			    );
+
+			    const environmentFile = modelInfo.environment;
+
+			    new RGBELoader()
+				    .setPath( 'samples/models/textures/' )
+					.load( environmentFile, function ( texture ) {
+
+						texture.mapping = THREE.EquirectangularReflectionMapping;
+
+						scene.background = texture;
+						scene.environment = texture;
+
+						render();
+
+						// model
+
+						const loader = new GLTFLoader().setPath( 'samples/models/' );
+						loader.load( modelFile, function ( gltf ) {
+
+							currentModel = gltf.scene;
+							currentModel.position.copy(targetPosition);
+							scene.add( currentModel );
+
+							render();
+
+							// Once the viewer has loaded, hide the loading overlay
+				    		const loadingOverlay = document.querySelector('.loading-overlay');
+				    		loadingOverlay.style.display = 'none';
+
+				    		// smoothTransitionCamera(modelInfo.camera, 1000)
+
+						} );
+
+					} );
+
+			}
+
+			function smoothTransitionCamera(targetPosition, duration) {
+			    console.log('Target Position:', targetPosition);
+			    const tween = new TWEEN.Tween(camera.position)
+			        .to(targetPosition, duration)
+			        .easing(TWEEN.Easing.Quadratic.Out)
+			        .onUpdate(() => {
+			            camera.updateProjectionMatrix();
+			        })
+			        .start();
+			}
+
+			function animate() {
+			    requestAnimationFrame(animate);
+			    currentModel.rotation.y -= 0.01;
+			    renderer.render(scene, camera);
+			    TWEEN.update();
+			}
+
 
 		</script>
 		<!-- CTA -->

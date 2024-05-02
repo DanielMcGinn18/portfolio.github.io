@@ -2180,7 +2180,6 @@ input, select, textarea {
 	}
 
 		.image img {
-			border-radius: 3px;
 			display: block;
 		}
 
@@ -2213,6 +2212,15 @@ input, select, textarea {
 			.image.fit img {
 				width: 100%;
 			}
+
+	@media screen and (max-width: 736px) {
+	  .row {
+	    all: initial; /* Reset all properties */
+	  }
+	  .image.fit img {
+				width: 200%;
+			}
+	}
 
 /* List */
 
@@ -2968,6 +2976,10 @@ input, select, textarea {
 		padding: 2em 0 .25em 0 ;
 	}
 
+	.wrapper.style5.viewer {
+				padding: 0.5em 1.25em 0em 1.25em ;
+			}
+
 		.wrapper > .inner {
 			width: 60em;
 			margin: 0 auto;
@@ -3574,7 +3586,7 @@ input, select, textarea {
 				padding: 3em 2em 1em 2em ;
 			}
 			.wrapper.style5.viewer {
-				padding: 3em 1.25em 1.25em 1.25em ;
+				padding: 0em 1.25em 0em 1.25em ;
 			}
 
 		}
