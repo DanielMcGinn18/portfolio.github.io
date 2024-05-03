@@ -153,6 +153,35 @@ input, select, textarea {
   visibility: visible;
   /*border-bottom-color: transparent;*/
 }
+
+/* Default styling for embedded videos */
+.embed-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Aspect ratio 16:9 */
+    height: 0;
+    overflow: hidden;
+}
+
+.embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 736px) {
+    /* Adjust width for smaller screens */
+    .row {
+	    all: initial; /* Reset all properties */
+	  }
+	 .embed-container {
+        width: 200%; /* Set width to 200% */
+        padding-bottom: 112.5%;
+    }
+}
+
 /* Basic */
 
 	@-ms-viewport {
@@ -2222,6 +2251,7 @@ input, select, textarea {
 			}
 	}
 
+
 /* List */
 
 	ol {
@@ -4113,7 +4143,7 @@ input, select, textarea {
 	}
 
 	#main > header.style2 {
-		padding: 8em 0 6em 0 ;
+		padding: 6em 0 4em 0 ;
 		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/bg3.jpg");
 		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/bg3.jpg");
 		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/bg3.jpg");
@@ -4126,7 +4156,7 @@ input, select, textarea {
 	}
 
 	#main > header.style3 {
-		padding: 8em 0 6em 0 ;
+		padding: 6em 0 4em 0 ;
 		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/bg2.jpg");
 		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/bg2.jpg");
 		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/bg2.jpg");
