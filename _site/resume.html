@@ -172,7 +172,7 @@
 							<li><a href="https://www.linkedin.com/in/daniel-mcginn-01" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
 						</ul>
 						<ul class="copyright">
-							<li>&copy; 2024 Daniel McGinn</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li>Background: <a href="https://unsplash.com/">Unsplash</a></li>
+							<li>&copy; <span id="copyright-year"></span> Daniel McGinn</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li>Background: <a href="https://unsplash.com/">Unsplash</a></li>
 						</ul>
 					</footer>
 
@@ -186,6 +186,9 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+			  document.getElementById("copyright-year").textContent = new Date().getFullYear();
+			</script>
 
 	</body>
 </html>
